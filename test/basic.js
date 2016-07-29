@@ -30,7 +30,7 @@ test('LocationHistory.go() loads given page', (t) => {
   })
 })
 
-test('LocationHistory.go() loads page syncronously', (t) => {
+test('LocationHistory.go() loads page synchronously', (t) => {
   t.plan(3)
 
   const location = new LocationHistory()
@@ -44,7 +44,7 @@ test('LocationHistory.go() loads page syncronously', (t) => {
   t.equal(location.url(), SECOND_URL)
 })
 
-test('LocationHistory.go() loads page syncronously, even with callback', (t) => {
+test('LocationHistory.go() loads page synchronously, even with callback', (t) => {
   t.plan(3)
 
   const location = new LocationHistory()
@@ -126,7 +126,7 @@ test('LocationHistory.back() loads the previous page', (t) => {
   })
 })
 
-test('LocationHistory.back() loads the previous page syncronously', (t) => {
+test('LocationHistory.back() loads the previous page synchronously', (t) => {
   t.plan(3)
 
   const location = new LocationHistory()
@@ -141,7 +141,7 @@ test('LocationHistory.back() loads the previous page syncronously', (t) => {
   })
 })
 
-test('LocationHistory.back() loads the previous page syncronously, even with callback', (t) => {
+test('LocationHistory.back() loads the previous page synchronously, even with callback', (t) => {
   t.plan(4)
 
   const location = new LocationHistory()
@@ -250,7 +250,7 @@ test('LocationHistory.forward() loads the next page', (t) => {
   })
 })
 
-test('LocationHistory.forward() loads the next page syncronously', (t) => {
+test('LocationHistory.forward() loads the next page synchronously', (t) => {
   t.plan(5)
 
   const location = new LocationHistory()
@@ -273,7 +273,7 @@ test('LocationHistory.forward() loads the next page syncronously', (t) => {
   })
 })
 
-test('LocationHistory.forward() loads the next page syncronously, even with callback', (t) => {
+test('LocationHistory.forward() loads the next page synchronously, even with callback', (t) => {
   t.plan(6)
 
   const location = new LocationHistory()

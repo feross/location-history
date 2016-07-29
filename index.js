@@ -29,8 +29,17 @@ LocationHistory.prototype.back = function (cb) {
   if (!cb) cb = noop
   if (self._back.length === 0 || self._pending) return cb(null)
 
-  var page = self._back.pop()
-  this._go(page, cb)
+  var previous = self._back.pop()
+  var current = self.current()
+  self._load(previous, done)
+
+  function done (err) {
+    if (err) return cb(err)
+    self._forward.push(current)
+    self._current = previous
+    self._unload(current)
+    cb(null)
+  }
 }
 
 LocationHistory.prototype.forward = function (cb) {

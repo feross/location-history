@@ -30,6 +30,22 @@ test('LocationHistory.go() loads given page', (t) => {
   })
 })
 
+test('LocationHistory.go() loads given page (without new keyword)', (t) => {
+  t.plan(3)
+
+  const location = LocationHistory() // without `new`
+
+  t.equal(location.url(), null)
+
+  location.go({ url: FIRST_URL }, () => {
+    t.equal(location.url(), FIRST_URL)
+
+    location.go({ url: SECOND_URL }, () => {
+      t.equal(location.url(), SECOND_URL)
+    })
+  })
+})
+
 test('LocationHistory.go() loads page synchronously', (t) => {
   t.plan(3)
 

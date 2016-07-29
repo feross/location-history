@@ -1,6 +1,7 @@
 module.exports = LocationHistory
 
 function LocationHistory () {
+  if (!(this instanceof LocationHistory)) return new LocationHistory()
   this._back = []
   this._forward = []
   this._current = null

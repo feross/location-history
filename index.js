@@ -22,7 +22,7 @@ LocationHistory.prototype.go = function (page, cb) {
   if (!('url' in page)) throw new Error('Missing required `url` property')
 
   this.clearForward()
-  this._go(page, cb)
+  go(this, page, cb)
 }
 
 LocationHistory.prototype.cancel = function (cb) {
@@ -42,13 +42,13 @@ function back (self, cb, cancel) {
 
   var previous = self._back.pop()
   var current = self.current()
-  self._load(previous, done)
+  load(self, previous, done)
 
   function done (err) {
     if (err) return cb(err)
     if (!cancel) self._forward.push(current)
     self._current = previous
-    self._unload(current)
+    unload(self, current)
     cb(null)
   }
 }
@@ -58,7 +58,7 @@ LocationHistory.prototype.forward = function (cb) {
   if (this._forward.length === 0 || this._pending) return cb(null)
 
   var page = this._forward.pop()
-  this._go(page, cb)
+  go(this, page, cb)
 }
 
 LocationHistory.prototype.hasBack = function () {
@@ -90,24 +90,22 @@ LocationHistory.prototype.backToFirst = function (cb) {
   })
 }
 
-LocationHistory.prototype._go = function (page, cb) {
-  var self = this
+function go (self, page, cb) {
   if (!cb) cb = noop
 
   var current = self.current()
-  self._load(page, done)
+  load(self, page, done)
 
   function done (err) {
     if (err) return cb(err)
     if (current) self._back.push(current)
     self._current = page
-    self._unload(current)
+    unload(self, current)
     cb(null)
   }
 }
 
-LocationHistory.prototype._load = function (page, cb) {
-  var self = this
+function load (self, page, cb) {
   self._pending = true
 
   if (page && typeof page.setup === 'function') page.setup(done)
@@ -119,8 +117,7 @@ LocationHistory.prototype._load = function (page, cb) {
   }
 }
 
-LocationHistory.prototype._unload = function (page) {
-  var self = this
+function unload (self, page) {
   self._pending = true
   if (page && typeof page.destroy === 'function') page.destroy()
   self._pending = false

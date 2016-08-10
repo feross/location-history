@@ -93,15 +93,6 @@ location.go({
 })
 ```
 
-### `location.cancel([callback])`
-
-Navigate to the previous page. If there is no previous page, this does nothing.
-
-Removes the current page from history. If you want the current page to stay in history (accessible via forward()), see back().
-
-Optionally, specify a `callback` function to be called after the next page is
-loaded (in case it has a `setup` function).
-
 ### `location.back([callback])`
 
 Navigate to the previous page. If there is no previous page, this does nothing.
@@ -112,6 +103,17 @@ loaded (in case it has a `setup` function).
 ### `location.forward([callback])`
 
 Navigate to the forward page. If there is no forward page, this does nothing.
+
+Optionally, specify a `callback` function to be called after the next page is
+loaded (in case it has a `setup` function).
+
+### `location.cancel([callback])`
+
+Navigate to the previous page, and remove the current page from the history. If
+there is no previous page, this does nothing.
+
+If you want the current page to stay in history (accessible via `forward()`), see
+`back()`.
 
 Optionally, specify a `callback` function to be called after the next page is
 loaded (in case it has a `setup` function).

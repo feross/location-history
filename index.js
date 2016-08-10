@@ -25,8 +25,18 @@ LocationHistory.prototype.go = function (page, cb) {
   this._go(page, cb)
 }
 
+LocationHistory.prototype.cancel = function (cb) {
+  back(this, cb, true)
+}
+
 LocationHistory.prototype.back = function (cb) {
-  var self = this
+  back(this, cb, false)
+}
+
+// Goes back to the previous screen
+// If 'cancel' is true, removes the current screen from history
+// If 'cancel' if false, the user can return by going forward
+function back (self, cb, cancel) {
   if (!cb) cb = noop
   if (self._back.length === 0 || self._pending) return cb(null)
 
@@ -36,7 +46,7 @@ LocationHistory.prototype.back = function (cb) {
 
   function done (err) {
     if (err) return cb(err)
-    self._forward.push(current)
+    if (!cancel) self._forward.push(current)
     self._current = previous
     self._unload(current)
     cb(null)

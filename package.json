@@ -1,7 +1,7 @@
 {
   "name": "location-history",
   "description": "Lightweight browser location history abstraction",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": {
     "name": "Feross Aboukhadijeh",
     "email": "feross@feross.org",

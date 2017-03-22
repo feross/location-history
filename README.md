@@ -1,4 +1,4 @@
-# location-history [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url]
+# location-history [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url]
 
 [travis-image]: https://img.shields.io/travis/feross/location-history/master.svg
 [travis-url]: https://travis-ci.org/feross/location-history
@@ -6,6 +6,8 @@
 [npm-url]: https://npmjs.org/package/location-history
 [downloads-image]: https://img.shields.io/npm/dm/location-history.svg
 [downloads-url]: https://npmjs.org/package/location-history
+[standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[standard-url]: https://standardjs.com
 
 ### Lightweight browser location history abstraction
 

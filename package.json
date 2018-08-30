@@ -34,7 +34,6 @@
     "url": "git://github.com/feross/location-history.git"
   },
   "scripts": {
-    "test": "standard && npm run test-node && npm run test-browser",
-    "test-node": "tape test/*.js"
+    "test": "standard && tape test/*.js"
   }
 }

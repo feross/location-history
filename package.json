@@ -12,8 +12,7 @@
   },
   "devDependencies": {
     "standard": "*",
-    "tape": "^4.0.0",
-    "zuul": "^3.0.0"
+    "tape": "^4.0.0"
   },
   "homepage": "https://github.com/feross/location-history",
   "keywords": [
@@ -36,8 +35,6 @@
   },
   "scripts": {
     "test": "standard && npm run test-node && npm run test-browser",
-    "test-browser": "zuul -- test/*.js",
-    "test-browser-local": "zuul --local -- test/*.js",
     "test-node": "tape test/*.js"
   }
 }

@@ -11,8 +11,6 @@
 
 ### Lightweight browser location history abstraction
 
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/location-history.svg)](https://saucelabs.com/u/location-history)
-
 Works in the browser with [browserify](http://browserify.org/)! This module is used by [WebTorrent Desktop](http://webtorrent.io/desktop).
 
 ## install

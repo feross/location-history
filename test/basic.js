@@ -201,7 +201,7 @@ test('LocationHistory.back() calls setup before loading previous page', (t) => {
   t.equal(location.url(), null)
 
   function setup (cb) {
-    let expectedUrl = called === 0
+    const expectedUrl = called === 0
       ? null
       : SECOND_URL
 

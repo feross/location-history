@@ -1,3 +1,4 @@
+/*! location-history. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 module.exports = LocationHistory
 
 function LocationHistory () {
